@@ -1,0 +1,84 @@
+.toggle {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(224, 224, 224);
+}
+
+.toggle .toggle-label {
+    background-color: grey;
+    transition: background-color 0.3s ease;
+    width: 175px;
+    height: 57px;
+    border-radius: 200px;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.toggle-label::before,
+.toggle-label::after {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-family: sans-serif;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.toggle-label::before {
+    content: "No";
+    color: white;
+    left: 0;
+    z-index: 1;
+    opacity: 1; 
+}
+
+.toggle-label::after {
+    content: "Yes";
+    color: white;
+    right: 0;
+    z-index: 1;
+    opacity: 0; 
+}
+
+.toggle-cb {
+    display: none;
+}
+
+.toggle-cb:checked + .toggle-label {
+    background-color: red;
+}
+
+.toggle-cb:checked + .toggle-label::before {
+    opacity: 0; 
+}
+
+.toggle-cb:checked + .toggle-label::after {
+    opacity: 1; 
+}
+
+.toggle-label .toggle-switch {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 2;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.toggle-cb:checked + .toggle-label .toggle-switch {
+    transform: translateY(-50%) translateX(120px);
+}
